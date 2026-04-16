@@ -1,0 +1,55 @@
+.product-detail-page {
+  min-height: 100vh;
+  padding: 32px 0 80px;
+}
+
+.product-detail-page__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.product-detail-page__back {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.product-detail-page__back:hover {
+  color: var(--color-text-primary);
+}
+
+.product-detail-page__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.product-detail-page__not-found {
+  max-width: var(--max-width);
+  margin: 80px auto;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.product-detail-page__not-found button {
+  margin-top: 16px;
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 14px;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .product-detail-page__content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

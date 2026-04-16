@@ -1,0 +1,135 @@
+.review-section {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--color-border);
+}
+
+.review-section__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.review-section__header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.review-section__avg {
+  font-size: 16px;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.review-section__count {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.review-section__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.review-item {
+  padding: 16px;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.review-item__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.review-item__author {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.review-item__stars {
+  font-size: 13px;
+  color: #f59e0b;
+}
+
+.review-item__date {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-left: auto;
+}
+
+.review-item__content {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.review-section__write {
+  padding: 24px;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.review-section__write h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.review-section__stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.review-section__star {
+  font-size: 24px;
+  color: var(--color-border);
+  transition: color 0.15s;
+}
+
+.review-section__star.active {
+  color: #f59e0b;
+}
+
+.review-section__textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-family: var(--font-family);
+  resize: vertical;
+  outline: none;
+  margin-bottom: 12px;
+}
+
+.review-section__textarea:focus {
+  border-color: var(--color-accent);
+}
+
+.review-section__submit {
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.review-section__submit:hover {
+  background-color: var(--color-accent-hover);
+}
