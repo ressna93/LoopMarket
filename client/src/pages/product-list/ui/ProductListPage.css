@@ -1,0 +1,26 @@
+.product-list-page {
+  min-height: 100vh;
+}
+
+.product-list-page__header {
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg-secondary);
+}
+
+.product-list-page__header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px 24px;
+}
+
+.product-list-page__header-inner h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.product-list-page__content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 24px;
+}
