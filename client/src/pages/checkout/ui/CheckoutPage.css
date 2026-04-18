@@ -1,0 +1,119 @@
+.checkout-page {
+  min-height: 100vh;
+  padding: 40px 0 80px;
+}
+
+.checkout-page__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.checkout-page__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 32px;
+}
+
+.checkout-page__content {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* 빈 장바구니 */
+.checkout-page__empty {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.checkout-page__empty p {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.checkout-page__empty button {
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 14px;
+}
+
+/* 주문 완료 */
+.checkout-page__complete {
+  text-align: center;
+  padding: 80px 0;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.checkout-page__complete-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-badge-new);
+  color: #fff;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.checkout-page__complete h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 12px;
+}
+
+.checkout-page__complete p {
+  font-size: 15px;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+}
+
+.checkout-page__complete strong {
+  color: var(--color-accent);
+}
+
+.checkout-page__complete-desc {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 16px 0 32px;
+}
+
+.checkout-page__complete-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.checkout-page__complete-actions button {
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.checkout-page__complete-actions button:first-child {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.checkout-page__complete-actions button:last-child {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+@media (max-width: 768px) {
+  .checkout-page__content {
+    grid-template-columns: 1fr;
+  }
+}
