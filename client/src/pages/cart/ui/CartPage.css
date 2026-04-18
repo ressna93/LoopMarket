@@ -1,0 +1,147 @@
+.cart-page {
+  min-height: 100vh;
+  padding: 40px 0 80px;
+}
+
+.cart-page__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cart-page__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 32px;
+}
+
+.cart-page__content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  align-items: start;
+}
+
+.cart-page__items-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 4px;
+}
+
+.cart-page__items-header span {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.cart-page__clear {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+}
+
+.cart-page__clear:hover {
+  color: var(--color-badge-sale);
+}
+
+.cart-page__empty {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.cart-page__empty p {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+.cart-page__empty button {
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 주문 요약 */
+.cart-page__summary {
+  padding: 24px;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  position: sticky;
+  top: calc(var(--header-height) + 20px);
+}
+
+.cart-page__summary h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+}
+
+.cart-page__summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 12px;
+}
+
+.cart-page__summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  padding-top: 16px;
+  margin-top: 4px;
+  border-top: 1px solid var(--color-border);
+  margin-bottom: 20px;
+}
+
+.cart-page__checkout-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  transition: background-color 0.2s;
+}
+
+.cart-page__checkout-btn:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.cart-page__continue-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  border: 1px solid var(--color-border);
+  transition: all 0.2s;
+}
+
+.cart-page__continue-btn:hover {
+  border-color: var(--color-text-muted);
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+  .cart-page__content {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-page__summary {
+    position: static;
+  }
+}
