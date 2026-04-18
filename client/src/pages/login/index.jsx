@@ -1,3 +1,1 @@
-export const LoginPage = () => {
-  return <div>로그인 페이지</div>;
-};
+export { LoginPage } from './ui/LoginPage'
