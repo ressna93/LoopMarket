@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useCartStore } from '../../../features/cart'
 import './ProductInfo.css'
 
 const GRADE_INFO = {
@@ -10,6 +12,18 @@ const GRADE_INFO = {
 export const ProductInfo = ({ product }) => {
   const [quantity, setQuantity] = useState(1)
   const [isWished, setIsWished] = useState(false)
+  const navigate = useNavigate()
+  const { addItem } = useCartStore()
+
+  const handleAddToCart = () => {
+    for (let i = 0; i < quantity; i++) addItem(product)
+    navigate('/cart')
+  }
+
+  const handleBuyNow = () => {
+    for (let i = 0; i < quantity; i++) addItem(product)
+    navigate('/checkout')
+  }
 
   const grade = GRADE_INFO[product.grade] || GRADE_INFO['A급']
   const discount = Math.round((1 - product.price / product.originalPrice) * 100)
@@ -58,8 +72,8 @@ export const ProductInfo = ({ product }) => {
       </div>
 
       <div className="product-info__actions">
-        <button className="product-info__cart-btn">장바구니 담기</button>
-        <button className="product-info__buy-btn">바로 구매</button>
+        <button className="product-info__cart-btn" onClick={handleAddToCart}>장바구니 담기</button>
+        <button className="product-info__buy-btn" onClick={handleBuyNow}>바로 구매</button>
         <button
           className={`product-info__wish-btn ${isWished ? 'active' : ''}`}
           onClick={() => setIsWished((w) => !w)}
