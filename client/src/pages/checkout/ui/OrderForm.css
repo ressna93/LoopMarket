@@ -1,0 +1,102 @@
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.order-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-form__section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.order-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.order-form__field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.order-form__field input {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-family: var(--font-family);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.order-form__field input:focus {
+  border-color: var(--color-accent);
+}
+
+.order-form__payment {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.order-form__payment-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.order-form__payment-item input {
+  display: none;
+}
+
+.order-form__payment-item.active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.order-form__notice {
+  padding: 12px 16px;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.order-form__notice p {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.order-form__submit {
+  padding: 15px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.order-form__submit:hover {
+  background-color: var(--color-accent-hover);
+}
