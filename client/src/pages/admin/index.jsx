@@ -1,3 +1,1 @@
-export const AdminPage = () => {
-  return <div>관리자 페이지</div>;
-};
+export { AdminPage } from './ui/AdminPage'
