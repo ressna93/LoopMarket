@@ -1,8 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
-import "./Header.css";
+import { Link, useNavigate } from 'react-router-dom'
+import { useUserStore } from '../../../entities/user'
+import './Header.css'
 
 export const Header = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const { user, logout } = useUserStore()
+
+  const handleLogout = async () => {
+    await logout()
+    navigate('/')
+  }
 
   return (
     <header className="header">
@@ -48,12 +55,20 @@ export const Header = () => {
               <path d="M16 10a4 4 0 0 1-8 0" />
             </svg>
           </button>
-          <button
-            className="header__login-btn"
-            onClick={() => navigate("/login")}
-          >
-            로그인
-          </button>
+          {user ? (
+            <div className="header__user">
+              <button className="header__user-btn" onClick={() => navigate('/my-page')}>
+                {user.displayName || user.email.split('@')[0]}
+              </button>
+              <button className="header__logout-btn" onClick={handleLogout}>
+                로그아웃
+              </button>
+            </div>
+          ) : (
+            <button className="header__login-btn" onClick={() => navigate('/login')}>
+              로그인
+            </button>
+          )}
         </div>
 
         <button className="header__hamburger" aria-label="메뉴">

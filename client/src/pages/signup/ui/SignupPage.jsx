@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useUserStore } from '../../../entities/user'
 import './SignupPage.css'
 
 export const SignupPage = () => {
   const navigate = useNavigate()
+  const { signup, error: authError, clearError } = useUserStore()
   const [form, setForm] = useState({ name: '', email: '', password: '', passwordConfirm: '' })
   const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    clearError()
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!form.name || !form.email || !form.password || !form.passwordConfirm) {
       setError('모든 항목을 입력해주세요.')
@@ -25,9 +28,13 @@ export const SignupPage = () => {
       setError('비밀번호는 6자 이상이어야 합니다.')
       return
     }
-    // Firebase Auth 연동 예정
     setError('')
-    navigate('/')
+    try {
+      await signup(form.email, form.password, form.name)
+      navigate('/')
+    } catch {
+      // authError 에서 처리
+    }
   }
 
   return (
@@ -109,7 +116,7 @@ export const SignupPage = () => {
               />
             </div>
 
-            {error && <p className="auth-form__error">{error}</p>}
+            {(error || authError) && <p className="auth-form__error">{error || authError}</p>}
 
             <button type="submit" className="auth-form__submit">가입하기</button>
           </form>
