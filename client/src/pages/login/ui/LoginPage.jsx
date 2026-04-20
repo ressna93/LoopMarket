@@ -1,25 +1,32 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useUserStore } from '../../../entities/user'
 import './LoginPage.css'
 
 export const LoginPage = () => {
   const navigate = useNavigate()
+  const { login, error: authError, clearError } = useUserStore()
   const [form, setForm] = useState({ email: '', password: '' })
   const [error, setError] = useState('')
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    clearError()
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!form.email || !form.password) {
       setError('이메일과 비밀번호를 입력해주세요.')
       return
     }
-    // Firebase Auth 연동 예정
     setError('')
-    navigate('/')
+    try {
+      await login(form.email, form.password)
+      navigate('/')
+    } catch {
+      // authError 에서 처리
+    }
   }
 
   return (
@@ -86,7 +93,7 @@ export const LoginPage = () => {
               <p>관리자: admin@loopmarket.kr / admin1234</p>
             </div>
 
-            {error && <p className="auth-form__error">{error}</p>}
+            {(error || authError) && <p className="auth-form__error">{error || authError}</p>}
 
             <button type="submit" className="auth-form__submit">로그인</button>
           </form>
