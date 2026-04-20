@@ -1,0 +1,114 @@
+.my-page {
+  min-height: 100vh;
+  padding: 40px 0 80px;
+}
+
+.my-page__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.my-page__profile {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 32px;
+}
+
+.my-page__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.my-page__user-info {
+  flex: 1;
+}
+
+.my-page__name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.my-page__email {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.my-page__join {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.my-page__stats {
+  display: flex;
+  gap: 24px;
+}
+
+.my-page__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.my-page__stat span:first-child {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.my-page__stat span:last-child {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.my-page__tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 28px;
+}
+
+.my-page__tab {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.my-page__tab.active {
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .my-page__profile {
+    flex-wrap: wrap;
+  }
+
+  .my-page__stats {
+    width: 100%;
+    justify-content: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+  }
+}
