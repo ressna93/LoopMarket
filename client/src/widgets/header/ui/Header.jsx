@@ -1,10 +1,13 @@
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useUserStore } from '../../../entities/user'
+import { SearchModal } from '../../../features/search-filter'
 import './Header.css'
 
 export const Header = () => {
   const navigate = useNavigate()
   const { user, logout } = useUserStore()
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const handleLogout = async () => {
     await logout()
@@ -24,7 +27,7 @@ export const Header = () => {
         </nav>
 
         <div className="header__actions">
-          <button className="header__icon-btn" aria-label="검색">
+          <button className="header__icon-btn" aria-label="검색" onClick={() => setIsSearchOpen(true)}>
             <svg
               width="20"
               height="20"
@@ -87,5 +90,6 @@ export const Header = () => {
         </button>
       </div>
     </header>
+    {isSearchOpen && <SearchModal onClose={() => setIsSearchOpen(false)} />}
   );
 };

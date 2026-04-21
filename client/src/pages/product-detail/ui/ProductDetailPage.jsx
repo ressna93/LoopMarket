@@ -1,7 +1,9 @@
+import { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { ProductImages } from './ProductImages'
 import { ProductInfo } from './ProductInfo'
 import { ReviewSection } from './ReviewSection'
+import { useRecentViewedStore } from '../../../features/recent-viewed'
 import './ProductDetailPage.css'
 
 const MOCK_PRODUCTS = [
@@ -22,8 +24,13 @@ const MOCK_PRODUCTS = [
 export const ProductDetailPage = () => {
   const { id } = useParams()
   const navigate = useNavigate()
+  const addItem = useRecentViewedStore((state) => state.addItem)
 
   const product = MOCK_PRODUCTS.find((p) => p.id === Number(id))
+
+  useEffect(() => {
+    if (product) addItem(product)
+  }, [product, addItem])
 
   if (!product) {
     return (
