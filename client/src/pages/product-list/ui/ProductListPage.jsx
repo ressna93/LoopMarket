@@ -31,9 +31,20 @@ export const ProductListPage = () => {
     else setMaxPrice(value)
   }
 
+  const searchQuery = searchParams.get('search') || ''
+
   const filtered = useMemo(() => {
     let result = [...MOCK_PRODUCTS]
 
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase()
+      result = result.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.spec.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q)
+      )
+    }
     if (category !== 'all') {
       result = result.filter((p) => p.categoryId === category)
     }
@@ -49,13 +60,13 @@ export const ProductListPage = () => {
     else if (sort === 'rating') result.sort((a, b) => b.rating - a.rating)
 
     return result
-  }, [category, sort, minPrice, maxPrice])
+  }, [category, sort, minPrice, maxPrice, searchQuery])
 
   return (
     <div className="product-list-page">
       <div className="product-list-page__header">
         <div className="product-list-page__header-inner">
-          <h1>상품 목록</h1>
+          <h1>{searchQuery ? `"${searchQuery}" 검색 결과` : '상품 목록'}</h1>
         </div>
       </div>
       <FilterBar
