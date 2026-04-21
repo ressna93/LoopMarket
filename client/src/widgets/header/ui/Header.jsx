@@ -15,6 +15,7 @@ export const Header = () => {
   }
 
   return (
+    <>
     <header className="header">
       <div className="header__inner">
         <Link to="/" className="header__logo">
@@ -91,5 +92,6 @@ export const Header = () => {
       </div>
     </header>
     {isSearchOpen && <SearchModal onClose={() => setIsSearchOpen(false)} />}
+    </>
   );
 };
