@@ -1,6 +1,7 @@
 import { HeroSection } from './HeroSection'
 import { CategorySection } from './CategorySection'
 import { FeaturedProducts } from './FeaturedProducts'
+import { RecentViewedSection } from './RecentViewedSection'
 import './MainPage.css'
 
 export const MainPage = () => {
@@ -9,6 +10,7 @@ export const MainPage = () => {
       <HeroSection />
       <CategorySection />
       <FeaturedProducts />
+      <RecentViewedSection />
     </div>
   )
 }
