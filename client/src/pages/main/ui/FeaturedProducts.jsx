@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { useCartStore } from '../../../features/cart'
 import './FeaturedProducts.css'
 
 const MOCK_PRODUCTS = [
@@ -66,6 +67,7 @@ const GRADE_CLASS = {
 
 export const FeaturedProducts = () => {
   const navigate = useNavigate()
+  const addItem = useCartStore((state) => state.addItem)
 
   return (
     <section className="featured">
@@ -116,6 +118,7 @@ export const FeaturedProducts = () => {
                 className="product-card__cart-btn"
                 onClick={(e) => {
                   e.stopPropagation()
+                  addItem(product)
                 }}
                 aria-label="장바구니 담기"
               >
