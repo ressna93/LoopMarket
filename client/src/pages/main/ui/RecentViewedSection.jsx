@@ -24,7 +24,11 @@ export const RecentViewedSection = () => {
               className="recent-viewed__item"
               onClick={() => navigate(`/products/${product.id}`)}
             >
-              <div className="recent-viewed__image" />
+              {product.image ? (
+                <img className="recent-viewed__image" src={product.image} alt={product.name} loading="lazy" />
+              ) : (
+                <div className="recent-viewed__image" />
+              )}
               <p className="recent-viewed__name">{product.name}</p>
               <p className="recent-viewed__price">₩{product.price.toLocaleString()}</p>
             </button>

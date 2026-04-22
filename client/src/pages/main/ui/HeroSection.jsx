@@ -47,7 +47,13 @@ export const HeroSection = () => {
           </div>
         </div>
         <div className="hero__visual">
-          <div className="hero__image-wrap" />
+          <div className="hero__image-wrap">
+            <img
+              src="https://picsum.photos/seed/macbookpro14/800/600"
+              alt="MacBook Pro"
+              className="hero__image"
+            />
+          </div>
         </div>
       </div>
     </section>
