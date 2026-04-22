@@ -1,54 +1,44 @@
+import { useState, useEffect } from 'react'
+import { ordersApi } from '../../../shared/api/ordersApi'
 import './OrderHistory.css'
 
-const MOCK_ORDERS = [
-  {
-    id: 'ORD-382910',
-    date: '2024.03.15',
-    status: '배송완료',
-    items: [{ name: 'MacBook Pro 14"', spec: 'Apple M3 · 16GB · 512GB', price: 1290000, grade: 'S급' }],
-    totalPrice: 1293000,
-  },
-  {
-    id: 'ORD-291847',
-    date: '2024.02.28',
-    status: '배송완료',
-    items: [
-      { name: 'Sony WH-1000XM5', spec: '노이즈캔슬링 · 블랙', price: 195000, grade: 'A급' },
-      { name: 'Logitech MX Master 3S', spec: '무선 · 그래파이트', price: 68000, grade: 'A급' },
-    ],
-    totalPrice: 266000,
-  },
-  {
-    id: 'ORD-183726',
-    date: '2024.02.10',
-    status: '배송중',
-    items: [{ name: 'iPhone 15 Pro', spec: '256GB · 내츄럴 티타늄', price: 920000, grade: '3급' }],
-    totalPrice: 923000,
-  },
-]
-
 const STATUS_CLASS = {
-  '배송완료': 'status--done',
+  '결제완료': 'status--pending',
   '배송중': 'status--shipping',
-  '주문확인': 'status--pending',
+  '배송완료': 'status--done',
 }
 
 export const OrderHistory = () => {
+  const [orders, setOrders] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    ordersApi
+      .getMyOrders()
+      .then((data) => setOrders(data.orders))
+      .catch(console.error)
+      .finally(() => setLoading(false))
+  }, [])
+
+  if (loading) return <p className="order-history__empty">불러오는 중...</p>
+
   return (
     <div className="order-history">
       <h2>주문 내역</h2>
-      {MOCK_ORDERS.length === 0 ? (
+      {orders.length === 0 ? (
         <p className="order-history__empty">주문 내역이 없습니다.</p>
       ) : (
         <div className="order-history__list">
-          {MOCK_ORDERS.map((order) => (
+          {orders.map((order) => (
             <div key={order.id} className="order-item">
               <div className="order-item__header">
                 <div>
-                  <span className="order-item__id">{order.id}</span>
-                  <span className="order-item__date">{order.date}</span>
+                  <span className="order-item__id">#{order.id.slice(0, 8).toUpperCase()}</span>
+                  <span className="order-item__date">
+                    {new Date(order.createdAt).toLocaleDateString('ko-KR')}
+                  </span>
                 </div>
-                <span className={`order-item__status ${STATUS_CLASS[order.status]}`}>
+                <span className={`order-item__status ${STATUS_CLASS[order.status] || ''}`}>
                   {order.status}
                 </span>
               </div>
