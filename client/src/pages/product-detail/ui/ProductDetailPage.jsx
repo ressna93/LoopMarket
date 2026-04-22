@@ -47,7 +47,7 @@ export const ProductDetailPage = () => {
           ← 뒤로가기
         </button>
         <div className="product-detail-page__content">
-          <ProductImages />
+          <ProductImages image={product.image} name={product.name} />
           <ProductInfo product={product} />
         </div>
         <ReviewSection rating={product.rating} reviewCount={product.reviewCount} />

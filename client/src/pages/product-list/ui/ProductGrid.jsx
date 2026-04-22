@@ -33,7 +33,12 @@ export const ProductGrid = ({ products }) => {
           onClick={() => navigate(`/products/${product.id}`)}
         >
           <div className="product-card__image-wrap">
-            <div className="product-card__image" />
+            <img
+              className="product-card__image"
+              src={product.image}
+              alt={product.name}
+              loading="lazy"
+            />
             {product.badge && (
               <span className={`product-card__badge ${BADGE_CLASS[product.badge]}`}>
                 {product.badge}

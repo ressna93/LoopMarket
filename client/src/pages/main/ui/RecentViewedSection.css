@@ -60,6 +60,7 @@
   width: 100%;
   aspect-ratio: 1;
   border-radius: var(--radius-sm);
+  object-fit: cover;
   background: linear-gradient(135deg, #1e1e2e, #2a2a3e);
 }
 
